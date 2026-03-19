@@ -20,7 +20,7 @@ This is a production-ready implementation of the Thndr AI homepage, built as a f
 
 ```bash
 # Clone and enter the project
-cd ThndrAI
+cd Thndr-Testweb
 
 # Build and start
 docker compose up --build
