@@ -4,6 +4,7 @@ import helmet from "helmet";
 import statsRouter from "./routes/stats";
 import customerStoriesRouter from "./routes/customerStories";
 import demoRequestRouter from "./routes/demoRequest";
+import contentRouter from "./routes/content";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -28,6 +29,7 @@ app.get("/api/health", (_req, res) => {
 app.use("/api/stats", statsRouter);
 app.use("/api/customer-stories", customerStoriesRouter);
 app.use("/api/demo-request", demoRequestRouter);
+app.use("/api/content", contentRouter);
 
 // Error handling
 app.use(notFoundHandler);

@@ -28,3 +28,8 @@ export const platformStats = pgTable("platform_stats", {
   icon: varchar("icon", { length: 100 }),
   sortOrder: serial("sort_order"),
 });
+
+export const siteContent = pgTable("site_content", {
+  section: text("section").primaryKey(),
+  data: text("data"), // Stored as JSON string
+});
