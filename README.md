@@ -36,12 +36,12 @@ docker compose up --build
 # API:       http://localhost:3001/api/health
 
 # Note: The website can run without a backend connection using fallback data,
-but the login/signup, book demo, and admin page CMS (/admin) only works with a database connection string.
-Set the DATABASE_URL in a .env file for full functionality.
+# but the login/signup, book demo, and admin page CMS (/admin) only works with a database connection string.
+# Set the DATABASE_URL in a .env file for full functionality.
 
 # Note 2: Book Demo still requires SMTP provider credentials to send actual emails,
-but the success message will display regardless of email delivery
-for demonstration purposes.
+# but the success message will display regardless of email delivery
+# for demonstration purposes.
 ```
 
 To stop: `docker compose down`
