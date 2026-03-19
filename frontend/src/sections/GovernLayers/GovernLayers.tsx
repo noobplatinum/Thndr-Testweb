@@ -57,7 +57,7 @@ export const GovernLayers: React.FC = () => {
 
           {/* Center: Image with icon overlay */}
           <div className="govern-layers__visual">
-            <div className="govern-layers__visual-frame">
+            <div className="govern-layers__visual-frame" key={`visual-${activeLayer.id}`}>
               <img
                 src={layerImages[activeLayer.id]}
                 alt={activeLayer.title}
@@ -74,6 +74,7 @@ export const GovernLayers: React.FC = () => {
             className="govern-layers__panel"
             id={`panel-${activeLayer.id}`}
             role="tabpanel"
+            key={`panel-${activeLayer.id}`}
           >
             <div className="govern-layers__panel-icon" aria-hidden="true">
               <ActiveLayerIcon className="govern-layers__panel-icon-glyph" />

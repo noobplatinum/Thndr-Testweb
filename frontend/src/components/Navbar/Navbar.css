@@ -167,6 +167,11 @@ button.navbar__action-btn {
 }
 
 @media (max-width: 768px) {
+  .navbar__inner.container {
+    padding-left: var(--space-3);
+    padding-right: var(--space-4);
+  }
+
   .navbar__toggle {
     display: flex;
   }
@@ -204,5 +209,12 @@ button.navbar__action-btn {
   .welcome-toast {
     right: var(--space-4);
     top: 82px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__inner.container {
+    padding-left: var(--space-2);
+    padding-right: var(--space-3);
   }
 }

@@ -41,8 +41,6 @@ export function AdminPanel() {
   const [loading, setLoading] = useState(false);
   const [savingSection, setSavingSection] = useState<string | null>(null);
   const [alert, setAlert] = useState<AlertState>(null);
-  const [newSection, setNewSection] = useState("");
-  const [newSectionData, setNewSectionData] = useState("{\n  \n}");
 
   const managedSectionKeys = useMemo(() => managedSections(), []);
 
@@ -85,11 +83,6 @@ export function AdminPanel() {
       void refreshContent();
     }
   }, [authToken, refreshContent]);
-
-  const unmanagedSections = useMemo(
-    () => Object.keys(editors).filter((section) => !managedSectionKeys.includes(section as ManagedCmsSection)),
-    [editors, managedSectionKeys]
-  );
 
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -177,41 +170,6 @@ export function AdminPanel() {
     showAlert("info", `${section} reset in editor. Click Save to persist.`);
   };
 
-  const createOrUpdateCustomSection = async () => {
-    if (!authToken) {
-      showAlert("error", "No auth token found.");
-      return;
-    }
-
-    const section = newSection.trim();
-    if (!section) {
-      showAlert("error", "Section name is required.");
-      return;
-    }
-
-    let parsed: unknown;
-    try {
-      parsed = JSON.parse(newSectionData);
-    } catch {
-      showAlert("error", "Invalid JSON in new section payload.");
-      return;
-    }
-
-    setSavingSection(section);
-    try {
-      await api.updateContent({ section, data: parsed }, authToken);
-      setNewSection("");
-      setNewSectionData("{\n  \n}");
-      showAlert("success", `${section} created or updated.`);
-      await refreshContent();
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Failed to create section.";
-      showAlert("error", message);
-    } finally {
-      setSavingSection(null);
-    }
-  };
-
   if (!authToken) {
     return (
       <div className="admin-login">
@@ -288,57 +246,6 @@ export function AdminPanel() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="admin-section">
-        <h2>Custom Sections</h2>
-        <p>Create or update additional sections not managed by defaults.</p>
-
-        <div className="admin-create">
-          <input
-            type="text"
-            placeholder="section name"
-            value={newSection}
-            onChange={(event) => setNewSection(event.target.value)}
-          />
-          <textarea
-            value={newSectionData}
-            onChange={(event) => setNewSectionData(event.target.value)}
-          />
-          <button onClick={createOrUpdateCustomSection} disabled={Boolean(savingSection)}>
-            Save Custom Section
-          </button>
-        </div>
-
-        {unmanagedSections.length > 0 && (
-          <div className="admin-grid admin-grid--custom">
-            {unmanagedSections.map((section) => (
-              <article key={section} className="admin-card">
-                <div className="admin-card__header">
-                  <h3>{section}</h3>
-                  <span className="admin-card__chip">custom</span>
-                </div>
-                <textarea
-                  value={editors[section]}
-                  onChange={(event) =>
-                    setEditors((prev) => ({
-                      ...prev,
-                      [section]: event.target.value,
-                    }))
-                  }
-                />
-                <div className="admin-card__actions">
-                  <button onClick={() => saveSection(section)} disabled={savingSection === section}>
-                    {savingSection === section ? "Saving..." : "Save"}
-                  </button>
-                  <button onClick={() => deleteSection(section)} disabled={savingSection === section}>
-                    Delete
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
       </section>
     </div>
   );

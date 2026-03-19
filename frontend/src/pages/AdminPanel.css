@@ -164,10 +164,6 @@
   gap: var(--space-4);
 }
 
-.admin-grid--custom {
-  margin-top: var(--space-5);
-}
-
 .admin-card {
   border: 1px solid var(--color-bg-card-border);
   border-radius: var(--border-radius-lg);
@@ -210,18 +206,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-}
-
-.admin-create {
-  display: grid;
-  gap: var(--space-3);
-  max-width: 900px;
-}
-
-.admin-create textarea {
-  min-height: 180px;
-  resize: vertical;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @media (max-width: 900px) {

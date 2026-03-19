@@ -22,6 +22,10 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 
 // Health check
+app.get("/health", (_req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });

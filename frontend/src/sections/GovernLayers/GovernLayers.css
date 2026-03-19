@@ -57,6 +57,7 @@
   background-clip: padding-box;
   width: 100%;
   aspect-ratio: 4 / 3;
+  animation: govern-layer-fade 320ms ease;
 }
 
 /* Gradient border */
@@ -86,13 +87,16 @@
 /* Icon overlay on image */
 .govern-layers__visual-icon-overlay {
   position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--border-radius-md);
-  background: rgba(0, 212, 170, 0.15);
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 170, 0.55);
+  background: radial-gradient(circle at 35% 30%, rgba(0, 212, 170, 0.45), rgba(0, 22, 38, 0.78));
+  box-shadow: 0 12px 36px rgba(0, 212, 170, 0.26);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -102,13 +106,15 @@
 }
 
 .govern-layers__visual-icon-glyph {
-  width: 22px;
-  height: 22px;
+  width: 52px;
+  height: 52px;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.5));
 }
 
 /* --- Right: Panel --- */
 .govern-layers__panel {
   padding: var(--space-2) 0;
+  animation: govern-layer-fade 360ms ease;
 }
 
 .govern-layers__panel-icon {
@@ -166,6 +172,18 @@
   color: var(--color-accent-cyan);
   font-weight: 700;
   flex-shrink: 0;
+}
+
+@keyframes govern-layer-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {

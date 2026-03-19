@@ -10,10 +10,13 @@ RUN npm run build
 FROM node:20-alpine AS production
 WORKDIR /app
 COPY --from=build /app/dist ./dist
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package.json ./
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+RUN chown -R node:node /app
 
 ENV NODE_ENV=production
 EXPOSE 3001
+
+USER node
 
 CMD ["node", "dist/index.js"]
