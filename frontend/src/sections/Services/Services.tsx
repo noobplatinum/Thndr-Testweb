@@ -1,12 +1,12 @@
 import React from 'react';
 import type { IconType } from 'react-icons';
-import { FiSearch, FiSettings, FiTool } from 'react-icons/fi';
+import { LuPlugZap, LuWorkflow, LuShieldCheck } from 'react-icons/lu';
 import './Services.css';
 
 const servicesIconMap: Record<string, IconType> = {
-  AS: FiSearch,
-  AR: FiTool,
-  AU: FiSettings,
+  AS: LuPlugZap,
+  AR: LuWorkflow,
+  AU: LuShieldCheck,
 };
 
 export const Services: React.FC = () => {
@@ -54,7 +54,7 @@ export const Services: React.FC = () => {
           <h3 className="services__heading">Our Approach</h3>
           <div className="services__timeline">
             {steps.map((step) => {
-              const Icon = servicesIconMap[step.icon] ?? FiSearch;
+              const Icon = servicesIconMap[step.icon] ?? LuPlugZap;
 
               return (
               <div key={step.number} className="services__step">

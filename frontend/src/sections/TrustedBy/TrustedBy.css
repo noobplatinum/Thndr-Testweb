@@ -63,7 +63,7 @@
 .trusted-by__img {
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: grayscale(1) brightness(0.7);
 }
 
 @media (max-width: 768px) {

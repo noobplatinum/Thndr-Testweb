@@ -3,7 +3,7 @@ import { SectionHeader } from '../../components/SectionHeader';
 import { useCustomerStories } from '../../hooks/useCustomerStories';
 import './CustomerStories.css';
 
-const customerImages = ['/Customers/1.jpg', '/Customers/2.jpg', '/Customers/3.jpg', '/Customers/4.jpg'];
+const customerImages = ['/Customers/c1.jpg', '/Customers/c2.jpg', '/Customers/c3.jpg', '/Customers/c4.jpg'];
 
 export const CustomerStories: React.FC = () => {
   const { stories, loading } = useCustomerStories();

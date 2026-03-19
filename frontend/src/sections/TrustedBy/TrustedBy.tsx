@@ -7,10 +7,10 @@ const LOGOS = [
   { name: 'CVS Health', src: '/Companies/cvs.png', height: 26 },
   { name: 'Amazon', src: '/Companies/amazon.png', height: 24 },
   { name: 'McKesson', src: '/Companies/mckesson.png', height: 26 },
+  { name: 'Cencora', src: '/Companies/cencora.png', height: 26 },
 ];
 
 export const TrustedBy: React.FC = () => {
-  // Duplicate for seamless infinite scroll
   const allLogos = [...LOGOS, ...LOGOS];
 
   return (

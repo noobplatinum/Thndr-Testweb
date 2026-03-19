@@ -22,12 +22,12 @@ export const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
     // Step 3: after 1s of logo display, start hiding logo
     setTimeout(() => {
       setShowLogo(false);
-    }, 1500);
+    }, 2500);
 
     // Step 4: after logo fades (400ms), un-blur text
     setTimeout(() => {
       setTextBlurred(false);
-    }, 1900);
+    }, 2900);
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
             End-to-end.
           </h1>
           <img
-            src="/thndr-logo.png"
+            src="/thndr-title.png"
             alt="Thndr AI"
             className={`hero__logo-flash ${showLogo ? 'hero__logo-flash--visible' : ''}`}
           />
