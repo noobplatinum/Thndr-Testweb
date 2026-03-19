@@ -5,22 +5,69 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  background-color: var(--color-bg-primary);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-.hero__bg-glow {
+/* Spotlight 1 — slow sweep from top-left */
+.hero::before {
+  content: '';
   position: absolute;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 600px;
+  top: -30%;
+  left: -20%;
+  width: 70%;
+  height: 120%;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 212, 170, 0.08) 0%,
-    rgba(168, 85, 247, 0.04) 40%,
+    rgba(168, 85, 247, 0.07) 0%,
     transparent 70%
   );
+  animation: spotlightSweep1 8s ease-in-out infinite alternate;
   pointer-events: none;
+  z-index: 0;
+}
+
+/* Spotlight 2 — slow sweep from top-right */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 60%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 212, 170, 0.06) 0%,
+    transparent 70%
+  );
+  animation: spotlightSweep2 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes spotlightSweep1 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(30%, 10%);
+    opacity: 1;
+  }
+}
+
+@keyframes spotlightSweep2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-25%, 15%);
+    opacity: 0.5;
+  }
 }
 
 .hero__container {
@@ -29,12 +76,45 @@
   z-index: 1;
 }
 
+/* --- Text cycling animation --- */
+.hero__title-wrapper {
+  position: relative;
+  min-height: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
 .hero__title {
   font-size: clamp(2.5rem, 6vw, var(--font-size-6xl));
   font-weight: 800;
   line-height: 1.15;
-  margin-bottom: var(--space-6);
   letter-spacing: -0.02em;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.hero__title--blurred {
+  filter: blur(12px);
+  opacity: 0;
+}
+
+.hero__logo-flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 200px;
+  height: auto;
+  opacity: 0;
+  filter: blur(8px);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hero__logo-flash--visible {
+  opacity: 1;
+  filter: blur(0);
 }
 
 .hero__subtitle {

@@ -5,7 +5,7 @@
   gap: var(--space-2);
   font-family: var(--font-family);
   font-weight: 600;
-  border-radius: var(--border-radius-full);
+  border-radius: var(--border-radius-lg);
   transition: all var(--transition-base);
   cursor: pointer;
   border: none;

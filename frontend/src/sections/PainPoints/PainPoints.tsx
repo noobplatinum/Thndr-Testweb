@@ -1,7 +1,7 @@
 
 import React from "react";
 import type { IconType } from "react-icons";
-import { FiActivity, FiAlertTriangle, FiFileText } from "react-icons/fi";
+import { LuWrench, LuLayoutGrid, LuRefreshCw, LuUsers, LuTrendingUp, LuShieldCheck } from "react-icons/lu";
 import { SectionHeader } from "../../components/SectionHeader";
 import "./PainPoints.css";
 import { useCmsContent } from "../../hooks/useCmsContent";
@@ -9,9 +9,12 @@ import { cmsDefaults } from "../../cms/managedSections";
 import type { PainPoint } from "../../types";
 
 const painPointIconMap: Record<string, IconType> = {
-  ML: FiActivity,
-  AU: FiFileText,
-  RG: FiAlertTriangle,
+  ML: LuWrench,
+  SC: LuLayoutGrid,
+  LC: LuRefreshCw,
+  TS: LuUsers,
+  RA: LuTrendingUp,
+  CG: LuShieldCheck,
 };
 
 export const PainPoints: React.FC = () => {
@@ -21,13 +24,13 @@ export const PainPoints: React.FC = () => {
     <section className="pain-points" id="pain-points">
       <div className="container">
         <SectionHeader 
-          title="The fragmentation problem"
-          subtitle="Why AI governance is failing in the enterprise"
+          title="AI is scaling fast. Governance isn't."
+          subtitle="Six structural challenges preventing safe, scalable AI."
         />
 
         <div className="pain-points__grid">
           {painPoints.map((point, index) => {
-            const Icon = painPointIconMap[point.icon] ?? FiActivity;
+            const Icon = painPointIconMap[point.icon] ?? LuWrench;
 
             return (
             <div key={index} className="pain-points__card">
@@ -47,4 +50,3 @@ export const PainPoints: React.FC = () => {
     </section>
   );
 };
-

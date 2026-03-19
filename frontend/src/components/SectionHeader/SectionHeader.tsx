@@ -6,7 +6,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   align?: 'left' | 'center';
   titleHighlight?: string;
-  highlightColor?: 'cyan' | 'purple' | 'gradient';
+  highlightColor?: 'cyan' | 'purple' | 'gradient' | 'purple-cyan';
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -44,8 +44,9 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     >
       {label && (
         <p
+          className={highlightColor === 'purple-cyan' ? 'text-purple-cyan' : ''}
           style={{
-            color: 'var(--color-accent-cyan)',
+            color: highlightColor === 'purple-cyan' ? undefined : 'var(--color-accent-cyan)',
             fontSize: 'var(--font-size-sm)',
             fontWeight: 600,
             textTransform: 'uppercase',

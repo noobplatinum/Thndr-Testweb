@@ -148,6 +148,17 @@ button {
   color: var(--color-accent-purple);
 }
 
+.text-purple-cyan {
+  background: linear-gradient(135deg, #a855f7, #00d4aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-orange {
+  color: var(--color-accent-orange);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
