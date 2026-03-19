@@ -16,6 +16,10 @@ This is a production-ready implementation of the Thndr AI homepage, built as a f
 
 ## Quick Start
 
+(Note: For ease-of-access, I have also deployed the frontend part on Vercel, 
+so you can test without docker building locally.
+Link: https://thndr-testweb.vercel.app/) <-- Not connected to backend since my Railway trial expired 😅
+
 **Prerequisites:** Docker and Docker Compose installed.
 
 ```bash
@@ -31,9 +35,13 @@ docker compose up --build
 # Frontend:  http://localhost:3000
 # API:       http://localhost:3001/api/health
 
-# Note: The website can run without a backend connection using fallback data, but the login/signup, book demo, and admin page CMS (/admin) only works with a database connection string. Set the DATABASE_URL in a .env file for full functionality.
+# Note: The website can run without a backend connection using fallback data,
+but the login/signup, book demo, and admin page CMS (/admin) only works with a database connection string.
+Set the DATABASE_URL in a .env file for full functionality.
 
-# Note 2: Book Demo still requires SMTP provider credentials to send actual emails, but the success message will display regardless of email delivery for demonstration purposes.
+# Note 2: Book Demo still requires SMTP provider credentials to send actual emails,
+but the success message will display regardless of email delivery
+for demonstration purposes.
 ```
 
 To stop: `docker compose down`
