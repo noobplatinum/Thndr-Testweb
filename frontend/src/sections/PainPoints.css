@@ -1,0 +1,72 @@
+.pain-points {
+  background: var(--color-bg-secondary);
+}
+
+.pain-points__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+.pain-points__card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-card-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+}
+
+.pain-points__card:hover {
+  border-color: var(--card-accent, var(--color-accent-cyan));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pain-points__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.pain-points__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.pain-points__card-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pain-points__card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.pain-points__footer {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+@media (max-width: 768px) {
+  .pain-points__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .pain-points__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

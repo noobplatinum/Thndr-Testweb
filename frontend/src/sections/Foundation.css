@@ -1,0 +1,107 @@
+.foundation__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.foundation__card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-card-border);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.foundation__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pillar-color);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.foundation__card:hover::before {
+  opacity: 1;
+}
+
+.foundation__card:hover {
+  border-color: var(--pillar-color);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.foundation__card-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.foundation__card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.foundation__card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+
+.foundation__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.foundation__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.foundation__feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.foundation__cta {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .foundation__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .foundation__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .foundation__grid > :last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
