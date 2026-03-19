@@ -2,11 +2,11 @@ import React from 'react';
 import { Button } from '../../components/Button';
 import './Hero.css';
 
-export const Hero: React.FC = () => {
-  const scrollToDemoRequest = () => {
-    const element = document.getElementById('demo-request');
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+interface HeroProps {
+  onBookDemo: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
 
   return (
     <section className="hero" aria-labelledby="hero-heading">
@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
           Fast. Flexible. Trusted. Built for regulated AI organizations
         </p>
         <div className="hero__cta animate-fade-in-up animate-delay-300">
-          <Button variant="primary" size="lg" ariaLabel="Book a demo" onClick={scrollToDemoRequest}>
+          <Button variant="primary" size="lg" ariaLabel="Book a demo" onClick={onBookDemo}>
             Book a Demo <span className="btn__arrow" aria-hidden="true">→</span>
           </Button>
         </div>

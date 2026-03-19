@@ -1,12 +1,13 @@
 .pain-points {
   background: var(--color-bg-secondary);
+  padding: var(--space-20) 0;
 }
 
 .pain-points__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-2);
 }
 
 .pain-points__card {
@@ -41,6 +42,11 @@
   flex-shrink: 0;
 }
 
+.pain-points__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .pain-points__title {
   font-size: var(--font-size-base);
   font-weight: 600;
@@ -62,6 +68,10 @@
 }
 
 @media (max-width: 768px) {
+  .pain-points {
+    padding: var(--space-16) 0;
+  }
+
   .pain-points__grid {
     grid-template-columns: 1fr;
   }

@@ -60,6 +60,11 @@
   margin-bottom: var(--space-6);
 }
 
+.foundation__icon-glyph {
+  width: 30px;
+  height: 30px;
+}
+
 .foundation__features {
   display: flex;
   flex-direction: column;

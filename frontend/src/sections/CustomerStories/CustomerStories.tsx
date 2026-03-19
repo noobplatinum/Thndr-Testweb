@@ -3,6 +3,8 @@ import { SectionHeader } from '../../components/SectionHeader';
 import { useCustomerStories } from '../../hooks/useCustomerStories';
 import './CustomerStories.css';
 
+const customerImages = ['/Customers/1.jpg', '/Customers/2.jpg', '/Customers/3.jpg', '/Customers/4.jpg'];
+
 export const CustomerStories: React.FC = () => {
   const { stories, loading } = useCustomerStories();
 
@@ -19,16 +21,15 @@ export const CustomerStories: React.FC = () => {
           </div>
         ) : (
           <div className="customer-stories__grid">
-            {stories.map((story: any) => (
+            {stories.map((story: any, index: number) => (
               <article key={story.id} className="customer-stories__card">
                 <div className="customer-stories__img-wrapper">
-                  <div className="customer-stories__img-placeholder" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" strokeWidth="1">
-                      <rect x="2" y="2" width="20" height="20" rx="4" />
-                      <circle cx="12" cy="10" r="3" />
-                      <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
-                    </svg>
-                  </div>
+                  <img
+                    className="customer-stories__img"
+                    src={story.imageUrl || customerImages[index % customerImages.length]}
+                    alt={`${story.authorName} from ${story.company}`}
+                    loading="lazy"
+                  />
                 </div>
                 <blockquote className="customer-stories__quote">
                   "{story.quote}"

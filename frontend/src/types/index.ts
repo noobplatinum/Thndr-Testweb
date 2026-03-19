@@ -25,6 +25,24 @@ export interface DemoRequestPayload {
   message?: string;
 }
 
+export interface AuthSignupPayload {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthLoginPayload {
+  login: string;
+  password: string;
+}
+
+export interface AuthUser {
+  id: number;
+  username: string;
+  email: string;
+  createdAt: string;
+}
+
 export interface ApiResponse<T> {
   data: T;
 }

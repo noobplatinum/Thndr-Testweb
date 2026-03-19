@@ -1,0 +1,108 @@
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+.auth-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 8, 20, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.auth-modal__panel {
+  position: relative;
+  width: min(440px, 100%);
+  border: 1px solid rgba(126, 146, 186, 0.35);
+  background: linear-gradient(170deg, #0f1d35 0%, #0d1528 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-8);
+  box-shadow: 0 30px 90px rgba(2, 8, 22, 0.75);
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #d4deef;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+
+.auth-modal__tabs {
+  display: inline-flex;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  border-radius: var(--border-radius-full);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  margin-bottom: var(--space-6);
+}
+
+.auth-modal__tab {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius-full);
+  color: #b5c4dd;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.auth-modal__tab.is-active {
+  background: rgba(0, 212, 170, 0.16);
+  color: #d4ffee;
+}
+
+.auth-modal__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-5);
+}
+
+.auth-modal__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.auth-modal__label {
+  display: grid;
+  gap: var(--space-2);
+  color: #cdd7ea;
+  font-size: var(--font-size-sm);
+}
+
+.auth-modal__input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.38);
+  border-radius: var(--border-radius-md);
+  background: rgba(9, 15, 29, 0.84);
+  color: var(--color-text-primary);
+  padding: var(--space-3) var(--space-4);
+}
+
+.auth-modal__input:focus {
+  outline: none;
+  border-color: rgba(67, 224, 201, 0.85);
+  box-shadow: 0 0 0 3px rgba(67, 224, 201, 0.18);
+}
+
+.auth-modal__error {
+  color: #ffb3b3;
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 480px) {
+  .auth-modal__panel {
+    padding: var(--space-6);
+  }
+
+  .auth-modal__title {
+    font-size: var(--font-size-xl);
+  }
+}

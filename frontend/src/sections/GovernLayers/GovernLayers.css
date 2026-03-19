@@ -90,6 +90,11 @@
   margin-bottom: var(--space-4);
 }
 
+.govern-layers__panel-icon-glyph {
+  width: 24px;
+  height: 24px;
+}
+
 .govern-layers__panel-title {
   font-size: var(--font-size-xl);
   font-weight: 700;

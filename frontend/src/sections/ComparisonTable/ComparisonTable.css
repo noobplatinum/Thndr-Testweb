@@ -1,5 +1,6 @@
 .comparison {
   background: var(--color-bg-secondary);
+  padding: var(--space-20) 0;
 }
 
 .comparison__header {
@@ -120,6 +121,10 @@
 }
 
 @media (max-width: 768px) {
+  .comparison {
+    padding: var(--space-16) 0;
+  }
+
   .comparison__title {
     font-size: var(--font-size-2xl);
   }

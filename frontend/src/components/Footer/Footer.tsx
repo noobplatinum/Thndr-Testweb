@@ -14,11 +14,7 @@ export const Footer: React.FC = () => {
         <div className="footer__grid">
           <div className="footer__brand">
             <a href="/" className="footer__logo" aria-label="Thndr AI Home">
-              <svg width="100" height="30" viewBox="0 0 100 30" fill="none" aria-hidden="true">
-                <text x="0" y="24" fontFamily="Inter, sans-serif" fontSize="26" fontWeight="800" fill="white">
-                  <tspan fill="#00d4aa">T</tspan>hndr
-                </text>
-              </svg>
+              <img src="/thndr-title-gradient.png" alt="Thndr" className="brand-wordmark brand-wordmark--footer" />
             </a>
             <p className="footer__tagline">
               AI Governance Automation for modern enterprises

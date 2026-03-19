@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
+import type { IconType } from 'react-icons';
+import { FiBarChart2, FiClipboard, FiTrendingUp } from 'react-icons/fi';
 import { useStats } from '../../hooks/useStats';
 import './LiveStats.css';
 
-const iconMap: Record<string, string> = {
-  uptime: '📊',
-  predictions: '🔮',
-  audit: '📋',
+const iconMap: Record<string, IconType> = {
+  uptime: FiBarChart2,
+  predictions: FiTrendingUp,
+  audit: FiClipboard,
 };
 
 function useCountUp(target: string, shouldAnimate: boolean): string {
@@ -50,11 +52,12 @@ const StatItem: React.FC<{ value: string; label: string; icon: string | null; an
   value, label, icon, animate,
 }) => {
   const displayValue = useCountUp(value, animate);
+  const Icon = icon ? iconMap[icon] ?? FiBarChart2 : FiBarChart2;
 
   return (
     <div className="live-stats__item">
       <div className="live-stats__icon" aria-hidden="true">
-        {icon ? iconMap[icon] || '📊' : '📊'}
+        <Icon />
       </div>
       <div className="live-stats__value">{displayValue}</div>
       <div className="live-stats__label">{label}</div>

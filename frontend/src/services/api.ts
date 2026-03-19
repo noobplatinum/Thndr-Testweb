@@ -2,6 +2,9 @@ import type {
   PlatformStat,
   CustomerStory,
   DemoRequestPayload,
+  AuthSignupPayload,
+  AuthLoginPayload,
+  AuthUser,
   ApiResponse,
   CmsContentItem,
   CmsUpdatePayload,
@@ -39,6 +42,18 @@ export const api = {
     fetchJson<{ message: string; data: { id: number } }>(`${API_BASE}/demo-request`, {
       method: "POST",
       body: JSON.stringify(data),
+    }),
+
+  signup: (payload: AuthSignupPayload) =>
+    fetchJson<{ message: string; user: AuthUser }>(`${API_BASE}/auth/signup`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }),
+
+  login: (payload: AuthLoginPayload) =>
+    fetchJson<{ message: string; user: AuthUser }>(`${API_BASE}/auth/login`, {
+      method: "POST",
+      body: JSON.stringify(payload),
     }),
 
   getContent: () =>

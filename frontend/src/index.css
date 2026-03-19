@@ -122,7 +122,11 @@ button {
 }
 
 .section {
-  padding: var(--space-20) 0;
+  padding: var(--space-24) 0;
+}
+
+#main-content > div > section + section {
+  margin-top: var(--space-16);
 }
 
 .section--dark {
@@ -204,6 +208,10 @@ button {
   }
 
   .section {
-    padding: var(--space-12) 0;
+    padding: var(--space-16) 0;
+  }
+
+  #main-content > div > section + section {
+    margin-top: var(--space-10);
   }
 }

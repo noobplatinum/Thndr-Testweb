@@ -23,7 +23,20 @@ const ensureDemoRequestTable = async (): Promise<void> => {
   await ensureDemoRequestTablePromise;
 };
 
-export const createDemoRequestService = async (email: string, name?: string, company?: string) => {
+export const createDemoRequestService = async (
+  email: string,
+  name?: string,
+  company?: string,
+  message?: string
+) => {
   await ensureDemoRequestTable();
-  return await db.insert(demoRequests).values({ email, name: name || "", company: company || "" }).returning();
+  return await db
+    .insert(demoRequests)
+    .values({
+      email,
+      name: name || "",
+      company: company || "",
+      message: message?.trim() ? message : null,
+    })
+    .returning();
 };

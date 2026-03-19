@@ -33,3 +33,11 @@ export const siteContent = pgTable("site_content", {
   section: text("section").primaryKey(),
   data: text("data"), // Stored as JSON string
 });
+
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: varchar("username", { length: 80 }).notNull().unique(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});

@@ -17,7 +17,7 @@ const FALLBACK_STORIES: CustomerStory[] = [
     company: "Enterprise Healthcare",
     metricLabel: "80% reduction in compliance time",
     metricValue: "80%",
-    imageUrl: null,
+    imageUrl: "/Customers/1.jpg",
     createdAt: "",
   },
   {
@@ -28,7 +28,7 @@ const FALLBACK_STORIES: CustomerStory[] = [
     company: "Enterprise Healthcare",
     metricLabel: "100% model coverage",
     metricValue: "100%",
-    imageUrl: null,
+    imageUrl: "/Customers/2.jpg",
     createdAt: "",
   },
   {
@@ -39,7 +39,7 @@ const FALLBACK_STORIES: CustomerStory[] = [
     company: "Financial Services",
     metricLabel: "25% faster time to market",
     metricValue: "25%",
-    imageUrl: null,
+    imageUrl: "/Customers/3.jpg",
     createdAt: "",
   },
   {
@@ -50,7 +50,7 @@ const FALLBACK_STORIES: CustomerStory[] = [
     company: "Tech Scale-up",
     metricLabel: "50+ agents governed",
     metricValue: "50+",
-    imageUrl: null,
+    imageUrl: "/Customers/4.jpg",
     createdAt: "",
   },
 ];

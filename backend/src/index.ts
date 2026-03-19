@@ -5,6 +5,7 @@ import statsRouter from "./routes/stats";
 import customerStoriesRouter from "./routes/customerStories";
 import demoRequestRouter from "./routes/demoRequest";
 import contentRouter from "./routes/content";
+import authRouter from "./routes/authRoute";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -30,6 +31,7 @@ app.use("/api/stats", statsRouter);
 app.use("/api/customer-stories", customerStoriesRouter);
 app.use("/api/demo-request", demoRequestRouter);
 app.use("/api/content", contentRouter);
+app.use("/api/auth", authRouter);
 
 // Error handling
 app.use(notFoundHandler);

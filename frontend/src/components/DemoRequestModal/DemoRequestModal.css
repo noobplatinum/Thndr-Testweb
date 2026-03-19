@@ -1,0 +1,105 @@
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1550;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+.demo-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 10, 22, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.demo-modal__panel {
+  position: relative;
+  width: min(560px, 100%);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid rgba(126, 146, 186, 0.4);
+  background: linear-gradient(170deg, rgba(14, 29, 54, 0.98) 0%, rgba(10, 17, 34, 0.98) 100%);
+  box-shadow: 0 35px 90px rgba(2, 8, 22, 0.72);
+  padding: var(--space-8);
+}
+
+.demo-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #d4deef;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+
+.demo-modal__title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.demo-modal__subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.demo-modal__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.demo-modal__label {
+  display: grid;
+  gap: var(--space-2);
+  color: #d5def0;
+  font-size: var(--font-size-sm);
+}
+
+.demo-modal__input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.38);
+  border-radius: var(--border-radius-md);
+  background: rgba(9, 15, 29, 0.84);
+  color: var(--color-text-primary);
+  padding: var(--space-3) var(--space-4);
+}
+
+.demo-modal__textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.demo-modal__input:focus {
+  outline: none;
+  border-color: rgba(67, 224, 201, 0.85);
+  box-shadow: 0 0 0 3px rgba(67, 224, 201, 0.18);
+}
+
+.demo-modal__error {
+  color: #ffb3b3;
+  font-size: var(--font-size-sm);
+}
+
+.demo-modal__success {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.demo-modal__success p {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 480px) {
+  .demo-modal__panel {
+    padding: var(--space-6);
+  }
+
+  .demo-modal__title {
+    font-size: var(--font-size-2xl);
+  }
+}

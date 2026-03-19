@@ -1,4 +1,6 @@
 import React from 'react';
+import type { IconType } from 'react-icons';
+import { FiActivity, FiShield, FiZap } from 'react-icons/fi';
 import { SectionHeader } from '../../components/SectionHeader';
 import { Button } from '../../components/Button';
 import { useCmsContent } from '../../hooks/useCmsContent';
@@ -6,13 +8,18 @@ import { cmsDefaults } from '../../cms/managedSections';
 import type { FoundationContent } from '../../types';
 import './Foundation.css';
 
-export const Foundation: React.FC = () => {
-  const content = useCmsContent<FoundationContent>('foundation', cmsDefaults.foundation);
+const foundationIconMap: Record<string, IconType> = {
+  UN: FiActivity,
+  TR: FiShield,
+  AU: FiZap,
+};
 
-  const scrollToDemoRequest = () => {
-    const element = document.getElementById('demo-request');
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+interface FoundationProps {
+  onBookDemo: () => void;
+}
+
+export const Foundation: React.FC<FoundationProps> = ({ onBookDemo }) => {
+  const content = useCmsContent<FoundationContent>('foundation', cmsDefaults.foundation);
 
   return (
     <section className="foundation section section--dark" aria-labelledby="foundation-heading">
@@ -22,7 +29,10 @@ export const Foundation: React.FC = () => {
           subtitle={content.subtitle}
         />
         <div className="foundation__grid">
-          {content.pillars.map((pillar) => (
+          {content.pillars.map((pillar) => {
+            const Icon = foundationIconMap[pillar.icon] ?? FiActivity;
+
+            return (
             <div
               key={pillar.title}
               className="foundation__card"
@@ -34,7 +44,7 @@ export const Foundation: React.FC = () => {
                 className="foundation__card-icon"
                 style={{ background: `${pillar.color}15`, color: pillar.color }}
               >
-                <span style={{ fontSize: '1.15rem', fontWeight: 700 }} aria-hidden="true">{pillar.icon}</span>
+                <Icon className="foundation__icon-glyph" aria-hidden="true" />
               </div>
               <ul className="foundation__features">
                 {pillar.features.map((feature) => (
@@ -45,10 +55,11 @@ export const Foundation: React.FC = () => {
                 ))}
               </ul>
             </div>
-          ))}
+            );
+          })}
         </div>
         <div className="foundation__cta">
-          <Button variant="primary" size="md" ariaLabel="Book a demo" onClick={scrollToDemoRequest}>
+          <Button variant="primary" size="md" ariaLabel="Book a demo" onClick={onBookDemo}>
             {content.ctaLabel} <span className="btn__arrow" aria-hidden="true">→</span>
           </Button>
         </div>

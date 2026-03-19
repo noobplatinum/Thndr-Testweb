@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
+import type { IconType } from 'react-icons';
+import { FiCpu, FiDatabase, FiGitBranch, FiLayers } from 'react-icons/fi';
 import { SectionHeader } from '../../components/SectionHeader';
 import { useCmsContent } from '../../hooks/useCmsContent';
 import { cmsDefaults } from '../../cms/managedSections';
 import type { GovernLayersContent } from '../../types';
 import './GovernLayers.css';
 
+const layerIconMap: Record<string, IconType> = {
+  data: FiDatabase,
+  model: FiCpu,
+  deployment: FiLayers,
+  agent: FiGitBranch,
+};
+
 export const GovernLayers: React.FC = () => {
   const content = useCmsContent<GovernLayersContent>('governLayers', cmsDefaults.governLayers);
   const [activeTab, setActiveTab] = useState('data');
   const activeLayer = content.layers.find((l) => l.id === activeTab) ?? content.layers[0];
+  const ActiveLayerIcon = layerIconMap[activeLayer?.id ?? 'data'] ?? FiDatabase;
 
   if (!activeLayer) {
     return null;
@@ -54,10 +64,7 @@ export const GovernLayers: React.FC = () => {
               role="tabpanel"
             >
               <div className="govern-layers__panel-icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-cyan)" strokeWidth="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M9 3v18M3 9h18" />
-                </svg>
+                <ActiveLayerIcon className="govern-layers__panel-icon-glyph" />
               </div>
               <h3 className="govern-layers__panel-title">{activeLayer.title}</h3>
               <p className="govern-layers__panel-subtitle">{activeLayer.subtitle}</p>

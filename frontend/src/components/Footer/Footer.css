@@ -15,6 +15,17 @@
   max-width: 250px;
 }
 
+.brand-wordmark {
+  display: block;
+  user-select: none;
+  object-fit: contain;
+}
+
+.brand-wordmark--footer {
+  width: 164px;
+  height: 48px;
+}
+
 .footer__tagline {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
